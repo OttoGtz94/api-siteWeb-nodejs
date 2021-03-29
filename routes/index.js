@@ -1,5 +1,12 @@
 const express = require('express');
 const {
+	newLab,
+	getLabs,
+	updateLab,
+	getLab,
+	removeLab,
+} = require('../controller/lab.controller');
+const {
 	newProject,
 	getProjects,
 	getProject,
@@ -41,6 +48,21 @@ module.exports = function () {
 
 	// eliminar tecnologia
 	router.delete('/technologys/:technologyId', removeTechnology);
+
+	// agregar lab
+	router.post('/labs', newLab);
+
+	// obtener labs
+	router.get('/labs', getLabs);
+
+	// obtener lab en especifico
+	router.get('/labs/:labId', getLab);
+
+	// actualizar lab
+	router.put('/labs/:labId', updateLab);
+
+	// eliminar lab
+	router.delete('/labs/:labId', removeLab);
 
 	return router;
 };
