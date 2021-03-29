@@ -6,6 +6,12 @@ const {
 	updateProject,
 	removeProject,
 } = require('../controller/project.controller');
+const {
+	newTechnology,
+	getTechnologys,
+	updateTechnology,
+	removeTechnology,
+} = require('../controller/technologys.controller');
 const router = express.Router();
 
 module.exports = function () {
@@ -23,6 +29,18 @@ module.exports = function () {
 
 	// eliminar proyecto
 	router.delete('/projects/:projectId', removeProject);
+
+	// agregar una tecnologia
+	router.post('/technologys', newTechnology);
+
+	// obtener tecnologias
+	router.get('/technologys', getTechnologys);
+
+	// actualizar tecnologia
+	router.put('/technologys/:technologyId', updateTechnology);
+
+	// eliminar tecnologia
+	router.delete('/technologys/:technologyId', removeTechnology);
 
 	return router;
 };
