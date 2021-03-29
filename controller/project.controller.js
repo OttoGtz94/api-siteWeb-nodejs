@@ -54,7 +54,7 @@ exports.removeProject = async (req, res, next) => {
 			_id: req.params.projectId,
 		});
 		res.json({
-			mensaje: `El proyecto ${req.params.name} fue eliminado`,
+			mensaje: 'Proyecto eliminado',
 		});
 	} catch (error) {
 		console.log(error);
