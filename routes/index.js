@@ -7,6 +7,11 @@ const {
 	removeLab,
 } = require('../controller/lab.controller');
 const {
+	newPerson,
+	getPerson,
+	updatePerson,
+} = require('../controller/person.controller');
+const {
 	newProject,
 	getProjects,
 	getProject,
@@ -19,6 +24,12 @@ const {
 	updateTechnology,
 	removeTechnology,
 } = require('../controller/technologys.controller');
+const {
+	newSocialMedia,
+	getSocialMedias,
+	updateSocialMedia,
+	removeSocialMedia,
+} = require('../controller/socialMedia.controller');
 const router = express.Router();
 
 module.exports = function () {
@@ -64,5 +75,28 @@ module.exports = function () {
 	// eliminar lab
 	router.delete('/labs/:labId', removeLab);
 
+	// nueva persona
+	router.post('/person', newPerson);
+
+	// obtener persona
+	router.get('/person', getPerson);
+
+	//actualizar persona
+	router.put('/person/:personId', updatePerson);
+
+	// nueva red social
+	router.post('/social-media', newSocialMedia);
+
+	// obtener redes sociales
+	router.get('/social-media', getSocialMedias);
+
+	// actualizar red social
+	router.put('/social-media/:socialMediaId', updateSocialMedia);
+
+	// eliminar red social
+	router.delete(
+		'/social-media/:socialMediaId',
+		removeSocialMedia,
+	);
 	return router;
 };
